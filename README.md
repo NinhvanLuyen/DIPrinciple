@@ -1,6 +1,6 @@
 # DIPrinciple
 ## SOLID principles :
- - SOLID principles là một nguyên lý thiết kế được công bố bởi Robert C.Martin. SOLID là một nguyên tắc thiết kế nổi tiếng nhất trong lập trình hướng đối tượng. Nó viết tắt của 5 nguyên lý sau.
+SOLID principles là một nguyên lý thiết kế được công bố bởi Robert C.Martin. SOLID là một nguyên tắc thiết kế nổi tiếng nhất trong lập trình hướng đối tượng. Nó viết tắt của 5 nguyên lý sau.
 * Single responsibility
 * Open - close
 * Liskov substitution 
@@ -17,3 +17,4 @@
 ### Interface segregation.
 
 ### Dependency inversion. 
+
