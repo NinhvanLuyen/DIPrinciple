@@ -17,7 +17,7 @@ SOLID principles là một nguyên lý thiết kế được công bố bởi Ro
 ### Interface segregation.
 
 ### Dependency inversion. 
-the dependency inversion principle is a specific form of decoupling software modules.
+The dependency inversion principle is a specific form of decoupling software modules.
 When following this principle, the conventional dependency relationships established from high-level, policy-setting modules to low-level, dependency modules are reversed,
  thus rendering **high-level modules independent of the low-level module implementation details**. 
  
@@ -26,7 +26,7 @@ The principle states:
 - **High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g. interfaces)**.
 - **Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.**
 
-#### Example 
+##### Example 
 - Main class
 ```C#
 class Program
@@ -44,7 +44,7 @@ class Program
             Chore chore = new Chore
             {
                 choreName = "Take out the trash",
-                owner = owner
+                owner = owner //assign chore for a owner
             };
 
             chore.PerformedWork(3);
@@ -63,7 +63,7 @@ class Program
         public string choreName { get; set; }
         public Person owner { get; set; }
         public double hoursWorked { get; private set; }
-        public bool IsComplete { get; private set; }
+        public bool isComplete { get; private set; }
 
         public void PerformedWork(double hours)
         {
@@ -74,9 +74,9 @@ class Program
 
         public void CompleteChore()
         {
-            IsComplete = true;
+            isComplete = true;
 
-            Logger log = new Logger();
+            Logger log = new Logger();  /// **Problem in here**
             log.Log($"Completed { choreName }");
 
             Emailer emailer = new Emailer();
@@ -106,3 +106,93 @@ class Program
           }
       }
   ```
+##### Problems in the example above : 
+The high level depending low-level.  Trong main class chúng ta đang depend 1 low-level cụ thể là Chore class.
+ Nếu chúng ta muốn thay đổi, depend another class. Example : ChoreTest class  -> Điều này là bất khả thi. 
+
+
+  ==> Difficult for scale-up and test.
+##### Solutions, What's  DI(dependence inversion) expect ?
+**High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g. interfaces)**.
+We need define abstracts (interface) for both High-level module and Low-level module depend this. Let's do this.
+```c#
+public interface IPerson
+    {
+        string EmailAddress { get; set; }
+        string FirstName { get; set; }
+        string LastName { get; set; }
+        string PhoneNumber { get; set; }
+    }
+```
+```c#
+public interface IChore
+    {
+        string ChoreName { get; set; }
+        double HoursWorked { get; }
+        bool IsComplete { get; }
+        IPerson Owner { get; set; }
+
+        void CompleteChore();
+        void PerformedWork(double hours);
+    }
+```
+
+Let implement the interface above to class
+
+```C#
+ public class Person : IPerson
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string PhoneNumber { get; set; }
+        public string EmailAddress { get; set; }
+    }
+```
+```C#
+ public class Chore : IChore
+    {
+        ILogger _logger; // use interface
+        IMessageSender _messageSender; //use interface
+
+        public string ChoreName { get; set; }
+        public IPerson Owner { get; set; }
+        public double HoursWorked { get; private set; }
+        public bool IsComplete { get; private set; }
+
+        public Chore(ILogger logger, IMessageSender messageSender) // dependence interface instead of class.
+        {
+            _logger = logger;
+            _messageSender = messageSender;
+        }
+
+        public void PerformedWork(double hours)
+        {
+            HoursWorked += hours;
+            _logger.Log($"Performed work on { ChoreName }");
+        }
+
+        public void CompleteChore()
+        {
+            IsComplete = true;
+
+            _logger.Log($"Completed { ChoreName }");
+
+            _messageSender.SendMessage(Owner, $"The chore { ChoreName } is complete.");
+        }
+    }
+```
+
+##### Generalization Retrictsion: 
+- All member variables in a class must be interfaces or abstracts.
+- All concrete class packages must connect only through interface or abstract class packages.
+- No class should derive from a concrete class.
+- No method should override an implemented method.
+- All variable instantiation requires the implementation of a creational pattern such as the factory method or the factory pattern, or the use of a **dependency-injection** framework.
+
+
+Think bigger :
+Continue see above example. If when we project growth and bigger than. We need to centralize instantiation for reuse purpose.
+
+
+
+  
