@@ -17,6 +17,9 @@ SOLID principles là một nguyên lý thiết kế được công bố bởi Ro
 ### Interface segregation.
 
 ### Dependency inversion. 
+
+  <img src="./images/ioc.jpg" width="250">
+
 The dependency inversion principle is a specific form of decoupling software modules.
 When following this principle, the conventional dependency relationships established from high-level, policy-setting modules to low-level, dependency modules are reversed,
  thus rendering **high-level modules independent of the low-level module implementation details**. 
@@ -127,10 +130,10 @@ public interface IPerson
 ```c#
 public interface IChore
     {
-        string ChoreName { get; set; }
-        double HoursWorked { get; }
-        bool IsComplete { get; }
-        IPerson Owner { get; set; }
+        string choreName { get; set; }
+        double hoursWorked { get; }
+        bool isComplete { get; }
+        IPerson owner { get; set; }
 
         void CompleteChore();
         void PerformedWork(double hours);
@@ -142,10 +145,10 @@ Let implement the interface above to class
 ```C#
  public class Person : IPerson
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string PhoneNumber { get; set; }
-        public string EmailAddress { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string phoneNumber { get; set; }
+        public string emailAddress { get; set; }
     }
 ```
 ```C#
@@ -154,10 +157,10 @@ Let implement the interface above to class
         ILogger _logger; // use interface
         IMessageSender _messageSender; //use interface
 
-        public string ChoreName { get; set; }
-        public IPerson Owner { get; set; }
-        public double HoursWorked { get; private set; }
-        public bool IsComplete { get; private set; }
+        public string choreName { get; set; }
+        public IPerson owner { get; set; }
+        public double hoursWorked { get; private set; }
+        public bool isComplete { get; private set; }
 
         public Chore(ILogger logger, IMessageSender messageSender) // dependence interface instead of class.
         {
@@ -167,20 +170,23 @@ Let implement the interface above to class
 
         public void PerformedWork(double hours)
         {
-            HoursWorked += hours;
-            _logger.Log($"Performed work on { ChoreName }");
+            hoursWorked += hours;
+            _logger.Log($"Performed work on { choreName }");
         }
 
         public void CompleteChore()
         {
-            IsComplete = true;
+            isComplete = true;
 
-            _logger.Log($"Completed { ChoreName }");
+            _logger.Log($"Completed { choreName }");
 
-            _messageSender.SendMessage(Owner, $"The chore { ChoreName } is complete.");
+            _messageSender.SendMessage(owner, $"The chore { choreName } is complete.");
         }
     }
 ```
+--> The results: The High-level is depending a abstract, it's not dependence low-level directly. If we want to the Chore is not dependence Person,
+I want change it to dependence PersonTest. I'll just create a new class PersonTest implement IPerson . I can pass this into Chore class.  
+
 
 ##### Generalization Retrictsion: 
 - All member variables in a class must be interfaces or abstracts.
@@ -191,8 +197,21 @@ Let implement the interface above to class
 
 
 Think bigger :
-Continue see above example. If when we project growth and bigger than. We need to centralize instantiation for reuse purpose.
+Continue see above example. If when we project growth and bigger than. We need to centralize instantiation for reuse purpose. 
+--> Use creational pattern such as the factory method or the factory pattern, or the use of a **dependency-injection** framework.
+Create a Factory class for example above:
+```java
+public class Factory {
+   
+    public static IPerson createPerson() {
+        return new Person();
+    }
+    public static IChore createChore() {
+        return new Chore(); 
+    }
 
+}
+```
 
 
   

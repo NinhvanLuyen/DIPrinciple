@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf332551-4ade-42e1-b6f3-84c99fd51d31" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/images/ioc.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -15,12 +16,13 @@
     <session id="1703934178">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -35,13 +37,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="md" value="1931" />
+          <entry key="md" value="2894" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="1926" />
-          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="HTML" value="1" />
+          <entry key="Markdown" value="2876" />
+          <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
     </session>
@@ -52,8 +55,14 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="886">
-                <caret line="193" column="125" selection-start-line="193" selection-start-column="125" selection-end-line="193" selection-end-column="125" />
+              <first_editor relative-caret-position="477">
+                <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+                <folding>
+                  <element signature="e#68#69#0" expanded="true" />
+                  <element signature="e#103#104#0" expanded="true" />
+                  <element signature="e#144#145#0" expanded="true" />
+                  <element signature="e#179#180#0" expanded="true" />
+                </folding>
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -68,6 +77,7 @@
     <findStrings>
       <find>HoursWorked</find>
       <find>IsComplete</find>
+      <find>Owner</find>
     </findStrings>
     <replaceStrings>
       <replace>hoursWorked</replace>
@@ -91,22 +101,41 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="1200" />
+    <option name="width" value="2560" />
+    <option name="height" value="1111" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="DIPrinciple" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DIPrinciple" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -134,11 +163,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
+    <frame x="0" y="23" width="1920" height="1111" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.32960597" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32960597" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -147,7 +176,7 @@
       <window_info anchor="bottom" id="Run" order="0" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Debug" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.32901296" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.3649053" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Flutter Performance" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" />
@@ -165,8 +194,14 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="886">
-            <caret line="193" column="125" selection-start-line="193" selection-start-column="125" selection-end-line="193" selection-end-column="125" />
+          <first_editor relative-caret-position="477">
+            <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <folding>
+              <element signature="e#68#69#0" expanded="true" />
+              <element signature="e#103#104#0" expanded="true" />
+              <element signature="e#144#145#0" expanded="true" />
+              <element signature="e#179#180#0" expanded="true" />
+            </folding>
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
