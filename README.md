@@ -18,7 +18,7 @@ SOLID principles là một nguyên lý thiết kế được công bố bởi Ro
 
 ### Dependency inversion. 
 
-  <img src="./images/ioc.jpg" width="250">
+  <img src="./images/ioc.jpg" width="500">
 
 The dependency inversion principle is a specific form of decoupling software modules.
 When following this principle, the conventional dependency relationships established from high-level, policy-setting modules to low-level, dependency modules are reversed,
